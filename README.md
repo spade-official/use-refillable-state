@@ -11,8 +11,8 @@
   <a href="#" target="_blank">
     <img alt="License: Spade Community" src="https://img.shields.io/badge/License-Spade Community-yellow.svg" />
   </a>
-  <a href="https://twitter.com/spade\_community" target="_blank">
-    <img alt="Twitter: spade_community" src="https://img.shields.io/twitter/follow/spade\_community.svg?style=social" />
+  <a href="https://twitter.com/spade_community" target="_blank">
+    <img alt="Twitter: spade_community" src="https://img.shields.io/twitter/follow/spade_community.svg?style=social" />
   </a>
 </p>
 
