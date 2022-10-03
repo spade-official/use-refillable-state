@@ -1,9 +1,13 @@
 {
   "name": "use-refillable-state",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Saves Html form data when user leaves page data and refill when revisits that page again!",
   "author": "spade-official",
-  "keywords": ["react", "refillable-form", "ux"],
+  "keywords": [
+    "react",
+    "refillable-form",
+    "ux"
+  ],
   "license": "MIT",
   "repository": "spade-official/use-refillable-state",
   "main": "dist/index.js",
