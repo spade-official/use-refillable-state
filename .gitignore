@@ -3,7 +3,7 @@
 
 # dependencies
 node_modules
-
+CNAME
 # builds
 build
 dist

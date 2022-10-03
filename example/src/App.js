@@ -9,10 +9,10 @@ const App = () => {
   const { currentState, setCurrentState, acceptDraft, discardDraft, showingDraft, saveState } = useRefillableState({first_name: '', last_name: '', email: '', password: ''})
 
   return (
+    <center>
+    <center style={{width: '30vw', marginTop: '35vh', backgroundColor: '#EFEAD8', borderRadius: '10px', fontFamily: 'monospace'}}>
 
-    <center style={{width: '30vw', marginTop: '30vh', marginLeft: '40vw', backgroundColor: '#EFEAD8', borderRadius: '10px', fontFamily: 'monospace'}}>
-
-      {showingDraft ? <div style={{display: 'flex', alignItems: 'center', borderRadius: '10px 10px 0 0', justifyContent: 'space-between', backgroundColor: '#00FFAB', padding: '0 1rem'}}>
+      {showingDraft ? <div style={{display: 'flex', alignItems: 'center', borderRadius: '10px 10px 0 0', justifyContent: 'space-between', backgroundColor: '#002E94', padding: '0 1rem'}}>
         <p style={{color: 'black'}}>Accept Saved Changes?</p>
         <div >
 
@@ -20,7 +20,7 @@ const App = () => {
           <button style={{color: 'red'}} onClick={discardDraft}>&#x2717; Ignore</button>
 
         </div>
-      </div> : <p style={{textAlign: 'left', backgroundColor: '#00FFAB', borderRadius: '10px 10px 0 0', display: 'flex', alignItems: 'center', padding: '1rem 1rem'}}>Long/Complex Form</p>}
+      </div> : <p style={{textAlign: 'left', backgroundColor: '#002E94', borderRadius: '10px 10px 0 0', display: 'flex', alignItems: 'center', padding: '1rem 1rem'}}>Long/Complex Form</p>}
       <br/>
 
       {/* <h3>Important/Long/Complex Form</h3> */}
@@ -49,6 +49,7 @@ const App = () => {
 
       </form>
 
+    </center>
     </center>
 
   )
