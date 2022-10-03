@@ -3,13 +3,26 @@
 > Saves Html form data when user leaves page data and refill when revisits that page again!
 
 [![NPM](https://img.shields.io/npm/v/use-refillable-state.svg)](https://www.npmjs.com/package/use-refillable-state) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+<h1 align="center">Welcome to use-refillable-state 👋</h1>
+<p>
+  <a href="https://www.npmjs.com/package/use-refillable-state" target="_blank">
+    <img alt="Version" src="https://img.shields.io/npm/v/use-refillable-state.svg">
+  </a>
+  <a href="#" target="_blank">
+    <img alt="License: Spade Community" src="https://img.shields.io/badge/License-Spade Community-yellow.svg" />
+  </a>
+  <a href="https://twitter.com/spade\_community" target="_blank">
+    <img alt="Twitter: spade\_community" src="https://img.shields.io/twitter/follow/spade\_community.svg?style=social" />
+  </a>
+</p>
+
+> html for save and retrieve back when re-visit
 
 ## Install
 
-```bash
-npm install --save use-refillable-state
+```sh
+npm i use-refillable-state
 ```
-
 ## Usage
 
 ```jsx
@@ -69,6 +82,22 @@ const App = () => {
 export default App
 
 ```
+
+## Author
+
+👤 **Spade Dev(s)**
+
+* Website: www.spadebeta.in
+* Twitter: [@spade\_community](https://twitter.com/spade\_community)
+* Github: [@spade-official](https://github.com/spade-official)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+
 
 ## License
 
