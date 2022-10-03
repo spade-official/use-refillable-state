@@ -12,6 +12,7 @@
   "dependencies": {
     "react": "file:../node_modules/react",
     "react-dom": "file:../node_modules/react-dom",
+    "react-router-dom": "^6.4.1",
     "react-scripts": "file:../node_modules/react-scripts",
     "use-refillable-state": "file:.."
   },
