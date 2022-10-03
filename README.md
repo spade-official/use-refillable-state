@@ -18,7 +18,11 @@
 > Take a Snapshot of a form, for better UX. 
 
 #### Purpose
-You go on a site, having a form with several fields. Because of several circumstances you left that site, when you visit again that aggghhhh.... feeling of filling that already filled values makes anger against site 😂. What if on every decided logical steps we save that draft locally, and discard when user submits (DEPENDS ON USE CASES). if user doesnt submitted, its still saved draft that can be retrieved afterwards when needed.
+You go on a site, having a form with several fields. Because of several circumstances you left that site, when you visit again that aggghhhh.... feeling of filling that already filled values makes anger against site 😂. 
+
+#### So whats the possible solution??
+What if on every decided logical steps we save that draft locally, and discard when user submits (DEPENDS ON USE CASES). 
+if user doesnt submitted, its still saved draft that can be retrieved afterwards when needed.
 
 ## Install
 
