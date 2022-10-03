@@ -1,6 +1,5 @@
-# use-refillable-state
 
-<h1 align="center">Welcome to use-refillable-state 👋</h1>
+<h1 align="center">Welcome to use-refillable-state Documentation 👋</h1>
 <p>
   <a href="https://www.npmjs.com/package/use-refillable-state" target="_blank">
     <img alt="Version" src="https://img.shields.io/npm/v/use-refillable-state.svg">
@@ -34,7 +33,9 @@ import useRefillableState from 'use-refillable-state'
 
 function App() {
   
-  const { currentState, setCurrentState, acceptDraft, discardDraft, showingDraft, saveState } = useRefillableState({username: '', user_agree_tnc: false, ...})
+  const { currentState, setCurrentState, acceptDraft, discardDraft, showingDraft, saveState } = useRefillableState({username: '',
+                                                                                                                    user_agree_tnc: false,
+                                                                                                                    ...})
   
    const handleFormSubmit = (e) => {
    
@@ -47,9 +48,20 @@ function App() {
   
     <form onSubmit={handleFormSubmit}>
     
-      <input onBlur={saveState} type="text" placeholder="Username" value={currentState.username} onChange={(e) => { setCurrentState({...currentState, username: e.target.value}) }} />
+      <input
+        onBlur={saveState}
+        type="text"
+        placeholder="Username"
+        value={currentState.username}
+        onChange={(e) => { setCurrentState({...currentState, username: e.target.value}) }} 
+       />
     
-            Agree Terms & Conditions? <input type="checkbox"  value={currentState.username} onChange={(e) => { setCurrentState({...currentState, username: e.target.value}) }} />
+       <label for="agreetnc">Agree Terms & Conditions?</label> 
+       <input name="agreetnc" id="agreetnc" type="checkbox"  value={currentState.username} onChange={(e) => { setCurrentState({...currentState, username: e.target.value}) }} />
+        
+        {
+        //Other bunch of inputs in this form continues...
+        }
             
  
             
