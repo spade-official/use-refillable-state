@@ -1,18 +1,18 @@
 # use-refillable-state
 
-> Saves Html form data when user leaves page data and refill when revisits that page again!
-
-[![NPM](https://img.shields.io/npm/v/use-refillable-state.svg)](https://www.npmjs.com/package/use-refillable-state) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 <h1 align="center">Welcome to use-refillable-state 👋</h1>
 <p>
   <a href="https://www.npmjs.com/package/use-refillable-state" target="_blank">
     <img alt="Version" src="https://img.shields.io/npm/v/use-refillable-state.svg">
   </a>
+  <a href="https://standardjs.com" target="_blank">
+    <img alt="Code Standard" src="https://img.shields.io/badge/code_style-standard-brightgreen.svg">
+  </a>
   <a href="#" target="_blank">
     <img alt="License: Spade Community" src="https://img.shields.io/badge/License-Spade Community-yellow.svg" />
   </a>
   <a href="https://twitter.com/spade\_community" target="_blank">
-    <img alt="Twitter: spade\_community" src="https://img.shields.io/twitter/follow/spade\_community.svg?style=social" />
+    <img alt="Twitter: spade_community" src="https://img.shields.io/twitter/follow/spade\_community.svg?style=social" />
   </a>
 </p>
 
