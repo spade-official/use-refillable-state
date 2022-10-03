@@ -29,6 +29,8 @@ npm i use-refillable-state
 
 ```jsx
 ...
+import { Fragment } from "react"
+
 import useRefillableState from 'use-refillable-state'
 
 function MyCustomForm() {
@@ -45,35 +47,46 @@ function MyCustomForm() {
    }
   
   return (
-  
-    <form onSubmit={handleFormSubmit}>
+    <Fragment>
+      
+      //Show Notice for accept/discard saved draft
+      {showingDraft && 
+        <div>
+          Accept Changes? 
+          <button onClick={acceptDraft}>Accept</button>
+          <button onClick={discardDraft}>Discard</button> 
+         </div>
+      }
     
-      <input
-        onBlur={saveState}
-        type="text"
-        placeholder="Username"
-        value={currentState.username}
-        onChange={(e) => { setCurrentState({...currentState, username: e.target.value}) }} 
-       />
-    
-       <label for="agreetnc">Agree Terms & Conditions?</label> 
-       <input 
-         name="agreetnc"
-         id="agreetnc"
-         type="checkbox"
-         value={currentState.username}
-         onChange={(e) => { setCurrentState({...currentState, username: e.target.value}) }}
-       />
-        
-        {
-        //Other bunch of inputs in this form continues...
-        }
-            
- 
-            
-       <button type="submit">Submit</button>
-    
-    </form>
+      <form onSubmit={handleFormSubmit}>
+
+        <input
+          onBlur={saveState}
+          type="text"
+          placeholder="Username"
+          value={currentState.username}
+          onChange={(e) => { setCurrentState({...currentState, username: e.target.value}) }} 
+         />
+
+         <label for="agreetnc">Agree Terms & Conditions?</label> 
+         <input 
+           name="agreetnc"
+           id="agreetnc"
+           type="checkbox"
+           value={currentState.username}
+           onChange={(e) => { setCurrentState({...currentState, username: e.target.value}) }}
+         />
+
+          {
+          //Other bunch of inputs in this form continues...
+          }
+
+
+
+         <button type="submit">Submit</button>
+
+      </form>
+    </Fragment>
   
   )
 
