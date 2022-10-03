@@ -28,10 +28,10 @@ npm i use-refillable-state
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+...
 import useRefillableState from 'use-refillable-state'
 
-function App() {
+function MyCustomForm() {
   
   const { currentState, setCurrentState, acceptDraft, discardDraft, showingDraft, saveState } = useRefillableState({username: '',
                                                                                                                     user_agree_tnc: false,
@@ -57,7 +57,13 @@ function App() {
        />
     
        <label for="agreetnc">Agree Terms & Conditions?</label> 
-       <input name="agreetnc" id="agreetnc" type="checkbox"  value={currentState.username} onChange={(e) => { setCurrentState({...currentState, username: e.target.value}) }} />
+       <input 
+         name="agreetnc"
+         id="agreetnc"
+         type="checkbox"
+         value={currentState.username}
+         onChange={(e) => { setCurrentState({...currentState, username: e.target.value}) }}
+       />
         
         {
         //Other bunch of inputs in this form continues...
@@ -73,6 +79,8 @@ function App() {
 
   
 }
+
+export default MyCustomForm;
 
 ```
 
