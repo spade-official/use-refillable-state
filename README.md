@@ -23,6 +23,9 @@
 ```sh
 npm i use-refillable-state
 ```
+
+### Live Playable Demo
+[Launch on CodeSandBox](https://codesandbox.io/embed/use-refillable-state-demo-7bdij3?fontsize=14&hidenavigation=1&theme=dark)
 ## Usage
 
 ```jsx
