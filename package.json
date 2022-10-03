@@ -1,6 +1,6 @@
 {
   "name": "use-refillable-state",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Saves Html form data when user leaves page data and refill when revisits that page again!",
   "author": "spade-official",
   "license": "MIT",
