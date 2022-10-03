@@ -84,6 +84,10 @@ export default MyCustomForm;
 
 ```
 
+### Note
+* Use this hook only once per page eg.. (1 for homePage("/home"), 1 for room("/home/room"), and so on...)
+* This is because it uses current page url as unique identifier to store data and for retrieving also, so i doesn't collide
+
 ## Author
 
 👤 **Spade Dev(s)**
