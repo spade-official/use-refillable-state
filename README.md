@@ -50,6 +50,7 @@ function MyCustomForm() {
    
     e.preventDefault(); // Prevents from redirecting page
     discardDraft(); // In this case it deletes Saved Draft bcz now we dont need this because user filled this form and submitted now!
+    // doSuccessRedirectOrWhateverYouWannaDo();
    
    }
   
