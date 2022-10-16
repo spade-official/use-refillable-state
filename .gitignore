@@ -7,6 +7,8 @@ CNAME
 # builds
 build
 dist
+trial.js
+index.html
 .rpt2_cache
 
 # misc

@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   padding: 0;
@@ -11,4 +12,119 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+form{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: min(500px, 50vw);
+}
+
+form > input{
+
+  margin: 0.7rem 1rem;
+  border: 1px solid black;
+  outline: none;
+  padding: 0.5rem 0.8rem;
+  width: 100%;
+
+}
+
+form > h2 {
+  /* margin-left: 0;
+  margin-right: auto; */
+  font-weight: bolder;
+  text-align: center;
+  border-bottom: 4px solid black;
+}
+
+form > div {
+  margin-top: 2rem;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+form button:first-child{
+
+  background-color: black;
+  color: white;
+  outline: none;
+  border: none;
+  letter-spacing: 1px;
+  padding: 0.7rem 1.2rem;
+  
+}
+
+form button:last-child{
+
+  background-color: white;
+  color: black;
+  outline: none;
+  margin-left: 1rem;
+  transform: scale(0.94);
+  border: 1px solid black;
+  letter-spacing: 1px;
+  padding: 0.7rem 1.2rem;
+  
+}
+form button:hover{
+  cursor: pointer;
+}
+
+form > input[name="profile_resume"]:hover::after{
+
+  content: 'Profile Resume';
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.3rem 0.8rem;
+  position: absolute;
+  left: 0.5rem;
+
+}
+form > input[name="profile_pic"]:hover::after{
+
+  content: 'Profile Picture';
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.3rem 0.8rem;
+  position: absolute;
+  left: 6rem;
+
+}
+
+form > span {
+
+  margin-left: 1rem;
+
+}
+
+.draft_confirm_alert{
+  border: 1px solid #2B7A0B;
+  width: 50%;
+  padding: 1rem;
+  margin: 3vh 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  background-color: #7DCE1330;
+}
+
+
+.draft_confirm_alert svg:first-child{
+  border:1px solid #2B7A0B;
+  background-color: #2B7A0B20;
+  border-radius: 200px;
+  margin-right: 0.4rem;
+}
+
+.draft_confirm_alert svg:last-child{
+  border:1px solid #C21010;
+  background-color: #E6484820;
+  border-radius: 200px;
+}
+
+
+.draft_confirm_alert svg:hover{
+  cursor: pointer;
 }
