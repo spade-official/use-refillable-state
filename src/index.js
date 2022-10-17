@@ -339,10 +339,14 @@ export function useRefillableForm(configs={}) {
 
       for(const inp in inputRefs.current){
 
-        inp?.removeEventListener("blur", saveState);
-        inp?.removeEventListener("keyup", handleInputChange);
-        inp?.removeEventListener("change", handleInputChange);
-        
+        try{
+          
+          inp?.removeEventListener("blur", saveState);
+          inp?.removeEventListener("keyup", handleInputChange);
+          inp?.removeEventListener("change", handleInputChange);
+          
+        } catch {}
+
 
       }
 

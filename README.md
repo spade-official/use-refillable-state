@@ -45,6 +45,9 @@ There are currently two packages for this implementation.
 - VanillaJS version (pure/native support)
 - ReactJS Specific
 
+
+If your site uses plain (html + css + js) format, you can move to [this alternative](https://www.npmjs.com/package/refillable-vanilla)
+
 In past version we have introduced `useRefillableState` hook, and you have to manually assign `value`, `onChange`, `onBlur` property to each of the input elements. Which is kind of headache for developers. We've also got feedback about this painfull experience.
 
 So, From version(V 2.0.0), it comes with a new powerfull, intelligent custom hook, `useRefillableForm`. Now you just need to add `ref` attribute to your form and it auto detects all of the nested `input` tags itself and assigns curresponding eventListeners to them. to take actions accordingly!
@@ -56,6 +59,8 @@ So, From version(V 2.0.0), it comes with a new powerfull, intelligent custom hoo
 ```sh
 npm i refillable
 ```
+
+> [Live Demo on CodeSandBox](https://codesandbox.io/s/refillable-demo-vike3r)
 
 ## Usage
 
