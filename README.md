@@ -17,103 +17,88 @@
 
 > Take a Snapshot of a form, for better UX. 
 
-#### Purpose
-You go on a site, having a form with several fields. Because of several circumstances you left that site, when you visit again that aggghhhh.... feeling of filling that already filled values makes anger against site 😂. 
+<br/>
 
-#### So whats the possible solution??
-What if on every decided logical steps we save that draft locally, and discard when user submits (DEPENDS ON USE CASES). 
-if user doesnt submitted, its still saved draft that can be retrieved afterwards when needed.
+### Introduction
+A client filling up the form on your site, Left that window/tab for xyz reasons. When client re-opens that page, Seeing their half filled form is fully empty now. This workflow is normal but we can optimize this. To make better UX! 
+
+So, actually instead of client re-enters the past filled information, What if we,
+- Store that past half-filled form for specific user and store it!
+- Next time user came back to same page, we reteieve that stored form and suggest to accept his/her past filled field values.
+
+Looks interesting? Let's move to the workflow.
+
+<br/>
+
+### Workflow
+So the idea is to take a snapshot of form whenever user fill it, No matter if its fully filled or not. Its looks like we are having track of their changes just like google form. but google form uses cloud storage option. However, Not all of the application use that approach.
+
+> Google Form doesn't store progress if user is offline
+
+To make this functionality available in offline mode, we are previously using localStorage API to store the form. 
+But now in newer versions (>2.0.0) we are using IndexedDB API as it can also supports Blob storage which is perfect for image/file uploads storage.
+
+<br/>
+
+### Implementation
+There are currently two packages for this implementation.
+- VanillaJS version (pure/native support)
+- ReactJS Specific
+
+In past version we have introduced `useRefillableState` hook, and you have to manually assign `value`, `onChange`, `onBlur` property to each of the input elements. Which is kind of headache for developers. We've also got feedback about this painfull experience.
+
+So, From version(V 2.0.0), it comes with a new powerfull, intelligent custom hook, `useRefillableForm`. Now you just need to add `ref` attribute to your form and it auto detects all of the nested `input` tags itself and assigns curresponding eventListeners to them. to take actions accordingly!
+
+* Enough talking, now code part!!
 
 ## Install
 
 ```sh
-npm i use-refillable-state
+npm i refillable
 ```
 
-### Live Playable Demo
-[Launch on CodeSandBox](https://codesandbox.io/embed/use-refillable-state-demo-7bdij3?fontsize=14&hidenavigation=1&theme=dark)
 ## Usage
 
 ```jsx
 ...
-import { Fragment } from "react"
+import { useRefillableForm } from "refillable";
 
-import useRefillableState from 'use-refillable-state'
+const MyApp = () => {
 
-function MyCustomForm() {
-  
-  const { currentState, setCurrentState, acceptDraft, discardDraft, showingDraft, saveState } = useRefillableState({username: '',
-                                                                                                                    user_agree_tnc: false,
-                                                                                                                    ...})
-  
-   const handleFormSubmit = (e) => {
-   
-    e.preventDefault(); // Prevents from redirecting page
-    discardDraft(); // In this case it deletes Saved Draft bcz now we dont need this because user filled this form and submitted now!
-   
-   }
-  
+  const { formRef } = useRefillableForm();
+
+
   return (
-    <Fragment>
-      
-      //Show Notice for accept/discard saved draft
-      {showingDraft && 
-        <div>
-          Accept Changes? 
-          <button onClick={acceptDraft}>Accept</button>
-          <button onClick={discardDraft}>Discard</button> 
-         </div>
-      }
+    <form ref={formRef}>
     
-      <form onSubmit={handleFormSubmit}>
-
-        <input
-          onBlur={saveState}
-          type="text"
-          placeholder="Username"
-          value={currentState.username}
-          onChange={(e) => { setCurrentState({...currentState, username: e.target.value}) }} 
-         />
-
-         <label for="agreetnc">Agree Terms & Conditions?</label> 
-         <input 
-           name="agreetnc"
-           id="agreetnc"
-           type="checkbox"
-           value={currentState.username}
-           onChange={(e) => { setCurrentState({...currentState, username: e.target.value}) }}
-         />
-
-          {
-          //Other bunch of inputs in this form continues...
-          }
-
-
-
-         <button type="submit">Submit</button>
-
-      </form>
-    </Fragment>
-  
+      <input type="text" placeholder="Username" name="username" />
+      
+      <div className="ui__needed_container">
+      
+        <a>Terms & Conditions</a>
+        
+        <div>
+          <input type="checkbox" name="is_adult" />
+        </div>
+        
+       </div>
+      
+    </form>
   )
 
-  
 }
-
-export default MyCustomForm;
-
 ```
 
 ### Note
-* Use this hook only once per page eg.. (1 for homePage("/home"), 1 for room("/home/room"), and so on...)
-* This is because it uses current page url as unique identifier to store data and for retrieving also, so i doesn't collide
+* If you are using `useRefillableState` hook more than once per page (not component), You must assign `unique_key` value to differenciate multiple hooks on same page.
+* This is because it uses current page url as unique identifier to store data and for retrieving also, so it won't collide
 
 ## Author
 
 👤 **Spade Dev(s)**
 
 * Website: www.spadebeta.in
-* Twitter: [@spade\_community](https://twitter.com/spade\_community)
+* Twitter: [@spade_community](https://twitter.com/spade_community)
 * Github: [@spade-official](https://github.com/spade-official)
 
 ## Show your support
@@ -121,7 +106,6 @@ export default MyCustomForm;
 Give a ⭐️ if this project helped you!
 
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
 
 
 ## License
