@@ -223,8 +223,35 @@ export default function useRefillableState(initial_state, form_unique_key=''){
 
 }
 
+function getFilledAmount(elems){
 
-export function useRefillableForm() {
+  if(elems.length === 0) return;
+
+
+  let filled_count = elems.reduce((prev, curr)=>prev + ((['checkbox', 'radio'].includes(curr.type)) ? curr.checked : Boolean(curr.value)),0)
+  // let filled_count = 0;
+  // for(const elem of elems){
+
+  //   if((elem.type === 'checkbox' || elem.type === 'radio')){
+  //     if(elem.checked){
+
+  //       filled_count++;
+  //     }
+  //   }else{
+
+  //     if(elem.value){
+  //       filled_count++;
+  //     }
+
+  //   }
+
+  // }
+
+  return (filled_count/elems.length) * 100
+
+}
+
+export function useRefillableForm(configs={}) {
 
   /*
   
@@ -241,7 +268,10 @@ export function useRefillableForm() {
 
   */
 
-  const { currentState, setCurrentState, draftState,acceptDraft, discardDraft, showingDraft, saveState, deleteState } = useRefillableState({})
+  const threshold = configs.threshold ?? 50;
+  const form_unique_key = configs.unique_key ?? '';
+
+  const { currentState, setCurrentState, draftState,acceptDraft, discardDraft, showingDraft, saveState, deleteState } = useRefillableState({}, form_unique_key)
   const inputRefs = React.useRef([]);
   const formRef = React.useRef();
 
@@ -249,7 +279,7 @@ export function useRefillableForm() {
     setCurrentState(curr => {return {...curr, [e.target.name]: ['file', 'image'].includes(e.target.type) ? e.target.files[0] : e.target.type !== 'checkbox' ? e.target.value : e.target.checked }})
     if(['file', 'image'].includes(e.type)) {saveState()}
 
-    if(save_on_change) saveState();
+    if(save_on_change && getFilledAmount(inputRefs.current) >= threshold) saveState();
 
   }
 
@@ -262,7 +292,7 @@ export function useRefillableForm() {
 
     //Tracking inner input elements in DFS formation.
     for (const child of elem.children){
-      let _catch = configureTag(child)
+      configureTag(child)
     }
 
 
@@ -277,7 +307,7 @@ export function useRefillableForm() {
 
       // Spammable fields save on Blur(off-Focus)
       // Ex.. 'text', 'email', 'password'....
-      elem.addEventListener("blur", saveState);
+      elem.addEventListener("blur", () => {if(getFilledAmount(inputRefs.current) >= threshold){saveState()}});
 
     }
 
@@ -298,8 +328,6 @@ export function useRefillableForm() {
     // If its load first time and have saved state / sync the value
 
     inputRefs.current.push(elem);
-
-    return elem;
 
   }
 

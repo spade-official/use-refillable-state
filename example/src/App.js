@@ -3,7 +3,7 @@ import { useRefillableForm } from "use-refillable-state/src";
 
 const App = () => {
 
-  const { formRef, showingDraft, deleteDraft, acceptDraft, discardDraft, currentState, setCurrentState } = useRefillableForm();
+  const { formRef, showingDraft, deleteDraft, acceptDraft, discardDraft, currentState, setCurrentState } = useRefillableForm({threshold: 50, unique_key: 'sign_up_form'});
   const [blobUrl, setBlobUrl] = React.useState('')
 
 
@@ -54,7 +54,6 @@ const App = () => {
         <input placeholder="Email" type="email" name="email" />
         <input placeholder="Phone No." type="phone" name="phone_no" />
         <input placeholder="Password" type="password" name="phone_no" />
-
         {
         
         currentState['profile_resume']  
@@ -62,9 +61,10 @@ const App = () => {
                   <p >Preview File: {currentState['profile_resume']?.name}</p>
                   <img style={{height: '100px', borderRadius: '5px'}}  src={`${blobUrl}`} />
                 </div>
-              : <input placeholder="File" type="file" name="profile_resume" />
-              
+              :
+         <input placeholder="File" type="file" name="profile_resume" />
         }
+        
 
         <div>
           <b>Which Language you love the most? </b>
