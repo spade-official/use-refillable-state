@@ -65,8 +65,10 @@ import { useRefillableForm } from "refillable";
 
 const MyApp = () => {
 
-  const { formRef } = useRefillableForm();
-
+  const { formRef } = useRefillableForm(configs);
+  // configs = {threshold?: 50, unique_key?: 'sign_up'}
+  // Provoding config is completely optional
+  // threshold is amount in percentage. Only if form is (threshold)% filled, then only save it! (defaults to 50)
 
   return (
     <form ref={formRef}>
@@ -88,6 +90,8 @@ const MyApp = () => {
 
 }
 ```
+
+
 
 ### Note
 * If you are using `useRefillableState` hook more than once per page (not component), You must assign `unique_key` value to differenciate multiple hooks on same page.
